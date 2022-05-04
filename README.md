@@ -30,7 +30,7 @@ This will build and run the application. Open [http://localhost:3000](http://loc
 
 The directory structure is as follows:
 
-```
+```text
 /public
   /images
 /src
@@ -46,7 +46,7 @@ The directory structure is as follows:
 /tests
 ```
 
-## Types
+## Types
 
 Types should be placed in a `/types` subfolder next to the implementation of that type. For example:
 - `/api/types` for API request/response types

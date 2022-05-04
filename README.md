@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# Local Setup
+# Installation
 ## Prerequisites
 
 You'll need the following installed:
@@ -10,7 +10,7 @@ You'll need the following installed:
 
 ## Getting Started
 
-First, install the npm dependencies:
+First, install the package dependencies:
 
 ```bash
 pnpm install
@@ -45,6 +45,8 @@ The directory structure is as follows:
   /utils
 /tests
 ```
+
+## Types
 
 Types should be placed in a `/types` subfolder next to the implementation of that type. For example:
 - `/api/types` for API request/response types

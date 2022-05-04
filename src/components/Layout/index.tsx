@@ -1,4 +1,6 @@
 import { Header, HeaderProps } from 'components/Header'
+import { Footer } from 'components/Footer'
+import Box from '@mui/material/Box';
 
 type Props = {
   header: HeaderProps;
@@ -8,14 +10,19 @@ type Props = {
 export const Layout : React.FC<Props> = ({ header, children }) => {
   
   return (
-    <>
+    <Box
+      component="div"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <Header {...header} />
-      <main>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         {children}
-      </main>
-      <footer>
-
-      </footer>
-    </>
+      </Box>
+      <Footer />
+    </Box>
   );
 };

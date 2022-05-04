@@ -14,7 +14,6 @@ export const Header : React.FC<HeaderProps> = ({ title }) => {
   return (
     <Box
       component="header"
-      sx={{ flexGrow: 1 }}
     >
       <AppBar position="static">
         <Toolbar>

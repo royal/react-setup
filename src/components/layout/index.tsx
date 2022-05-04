@@ -1,5 +1,5 @@
-import { Header, HeaderProps } from 'components/header'
-import { Footer } from 'components/footer'
+import { Header, HeaderProps } from 'components/header';
+import { Footer } from 'components/footer';
 import Box from '@mui/material/Box';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { Organisation, Repository } from './types'
+import type { Organisation, Repository } from './types'
 
 const apiUrl = "https://api.github.com";
 

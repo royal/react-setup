@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from 'hooks/api/useQuery';
 import { getOrganisation } from 'api/github';
 import { Organisation } from 'api/github/types';
 

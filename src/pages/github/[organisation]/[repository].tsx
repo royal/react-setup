@@ -11,7 +11,7 @@ const RepositoryPage = () => {
   const orgName = orgQuery as string;
   const repoName = repoQuery as string;
 
-  const { isLoading, isError, isFetched, data } = useRepository(orgName, repoName);
+  const { isLoading, isError, isFetched } = useRepository(orgName, repoName);
 
   <Layout header={{ title: `${orgName} / ${repoName}` }}>
     {isLoading && <CircularProgress />}

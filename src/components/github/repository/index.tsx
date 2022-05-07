@@ -8,7 +8,7 @@ type RepositoryProps = {
 
 export const Repository: React.FC<RepositoryProps> = ({ repository, organisation }) => {
   const { isFetched, data } = useRepository(organisation, repository);
-
+  
   if (!isFetched || data === undefined) return null;
   return (
     <Container>

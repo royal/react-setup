@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from 'hooks/api/useQuery';
 import { getRepository } from 'api/github';
 import { Repository } from 'api/github/types';
 

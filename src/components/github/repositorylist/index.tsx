@@ -3,6 +3,7 @@ import { ForkRight, Star } from '@mui/icons-material';
 import { useOrganisationRepositories } from 'hooks/api/github/useOrganisationRepositories';
 import { Error } from 'components/error';
 import { Repository } from 'api/github/types';
+import { humaniseDistance } from 'utils/date';
 
 type RepositoryListProps = {
   orgName: string;
@@ -28,6 +29,8 @@ export const RepositoryList: React.FC<RepositoryListProps> = ({ orgName }) => {
 
   if (!isFetched || data === undefined) return null;
 
+  const now = new Date();
+
   return (
     <Table>
       <TableHead>
@@ -45,11 +48,19 @@ export const RepositoryList: React.FC<RepositoryListProps> = ({ orgName }) => {
           .map((repository) => (
           <TableRow key={repository.id}>
             <TableCell>{repository.name}</TableCell>
-            <TableCell>{repository.created_at}</TableCell>
-            <TableCell>{repository.updated_at}</TableCell>
+            <TableCell>{humaniseDistance(repository.created_at)}</TableCell>
+            <TableCell>{humaniseDistance(repository.updated_at)}</TableCell>
             <TableCell>
               {repository.topics?.map((topic) => (
-                <Chip color="primary" key={topic} label={topic} />
+                <Chip
+                  color="primary"
+                  key={topic}
+                  label={topic}
+                  sx={{
+                    marginRight: '0.5rem',
+                    marginBottom: '0.5rem',
+                  }} 
+                />
               ))}
             </TableCell>
             <TableCell>

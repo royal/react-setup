@@ -9,7 +9,7 @@ type OrganisationProps = {
 
 export const Organisation: React.FC<OrganisationProps> = ({ org }) => {
 
-  let { organisation: { isFetched, data } } = useOrganisation(org);
+  let { isFetched, data } = useOrganisation(org);
 
   if (!isFetched || data === undefined) return null;
 

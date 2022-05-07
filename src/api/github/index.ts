@@ -18,3 +18,8 @@ export const getRepositoriesForOrganisation = async (organisation: string): Prom
   const response = await fetch(buildRequest(`${apiUrl}/orgs/${organisation}/repos`));
   return await response.json() as Repository[];
 }
+
+export const getRepository = async (organisation: string, repository: string): Promise<Repository> => {
+  const response = await fetch(buildRequest(`${apiUrl}/repos/${organisation}/${repository}`));
+  return await response.json() as Repository;
+}

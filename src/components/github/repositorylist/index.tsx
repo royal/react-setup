@@ -4,6 +4,7 @@ import { useOrganisationRepositories } from 'hooks/api/github/useOrganisationRep
 import { Error } from 'components/error';
 import { Repository } from 'api/github/types';
 import { humaniseDistance } from 'utils/date';
+import { isAfter } from 'date-fns';
 
 type RepositoryListProps = {
   orgName: string;
@@ -17,7 +18,7 @@ const sortByDates = (a: Repository, b: Repository) => {
   const d1 = new Date(a.updated_at);
   const d2 = new Date(b.updated_at);
 
-  return d2.getTime() - d1.getTime();
+  return isAfter(d1, d2) ? -1 : 1;
 }
 
 export const RepositoryList: React.FC<RepositoryListProps> = ({ orgName }) => {
@@ -28,8 +29,6 @@ export const RepositoryList: React.FC<RepositoryListProps> = ({ orgName }) => {
   if (isError) return <Error />;
 
   if (!isFetched || data === undefined) return null;
-
-  const now = new Date();
 
   return (
     <Table>

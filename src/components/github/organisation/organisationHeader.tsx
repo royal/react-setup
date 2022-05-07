@@ -1,6 +1,5 @@
 import { Avatar, Container, Link, Typography } from '@mui/material';
-import MyLocationIcon from '@mui/icons-material/MyLocation';
-import LinkIcon from '@mui/icons-material/Link';
+import { MyLocation, Link as LinkIcon} from '@mui/icons-material';
 import { Organisation } from 'api/github/types';
 import { FlexBox } from 'components/flexBox';
 
@@ -23,7 +22,7 @@ export const OrganisationHeader: React.FC<OrganisationHeaderProps> = ({ organisa
       <FlexBox direction="row">
         {organisation.location && (
           <>
-            <MyLocationIcon />
+            <MyLocation />
             <Typography variant="body1">{organisation.location}</Typography>
           </>
         )}

@@ -1,4 +1,4 @@
-import type { Organisation, Repository } from './types'
+import type { Organisation, Repository, RepositoryTree } from './types'
 
 const buildRequest = (endpoint: string) => {
   const request = new Request(`https://api.github.com/${endpoint}`);
@@ -17,7 +17,12 @@ export const getRepositoriesForOrganisation = async (organisation: string): Prom
   return await response.json() as Repository[];
 }
 
-export const getRepository = async (organisation: string, repository: string): Promise<Repository> => {
-  const response = await fetch(buildRequest(`repos/${organisation}/${repository}`));
+export const getRepository = async (owner: string, repository: string): Promise<Repository> => {
+  const response = await fetch(buildRequest(`repos/${owner}/${repository}`));
   return await response.json() as Repository;
+}
+
+export const getRepositoryFileTree = async (owner: string, repository: string, sha: string): Promise<RepositoryTree> => {
+  const response = await fetch(buildRequest(`repos/${owner}/${repository}/git/trees/${sha}`));
+  return await response.json() as RepositoryTree;
 }

@@ -13,11 +13,13 @@ const RepositoryPage = () => {
 
   const { isLoading, isError, isFetched } = useRepository(orgName, repoName);
 
-  <Layout header={{ title: `${orgName} / ${repoName}` }}>
-    {isLoading && <CircularProgress />}
-    {isError && <Error />}
-    {isFetched && <Repository organisation={orgName} repository={repoName} />}
-  </Layout>
+  return (
+    <Layout header={{ title: `${orgName} / ${repoName}` }}>
+      {isLoading && <CircularProgress />}
+      {isError && <Error />}
+      {isFetched && <Repository organisation={orgName} repository={repoName} />}
+    </Layout>
+  );
 }
 
 export default RepositoryPage;
